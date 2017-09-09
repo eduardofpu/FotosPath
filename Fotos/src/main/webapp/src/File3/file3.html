@@ -1,0 +1,81 @@
+  
+<div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.wallform.js"></script>
+  
+	<button type="button" ng-hide="showAddEdit" ng-click="show()">Nova	Foto</button>
+
+	<form ng-submit="salvarFile(f)" ng-hide="!showAddEdit" name="form" enctype="multipart/form-data">
+
+
+   		
+	<img ng-src="{{f.nomeImage}},{{f.file3}}" width="70" class="img-circle img80_80" /> Avatar: <br /> 
+	
+				<input type="file"	class="btn btn-danger btn-xs" ng-model="f.file3" accept="image/*"
+	                       multiple app-filereader ng-change="updateLinkImage(f.file3[0])" >
+	                      
+
+
+
+		<!-- 
+			
+				
+				<input type="file" class="btn btn-danger btn-xs" ng-model="f.file" accept="image/*"enctype="multipart/form-data" />
+				<img ng-src="{{f.mymeType}},{{f.file}}" width="70"
+				class="img-circle img80_80" /> Avatar: <br /> <input type="file"
+				class="btn btn-danger btn-xs" ng-model="f.file" accept="image/*"
+				multiple app-filereader ng-change="updateLinkImage(f.file[0])" 
+				enctype="multipart/form-data" />
+				 -->
+
+		
+		
+		<div>
+			<label>Nome Usuario</label> <input type="text" placeholder="Nome Usuario"
+				ng-model="f.usuario">
+		</div>
+		
+		<div>
+			<label>CPF</label> <input type="text" placeholder="CPF"
+				ng-model="f.cpf">
+		</div>
+
+
+		<button type="submit">Save</button>
+		<button type="button" ng-click="hide()">Cancel</button>
+	
+    </form>
+	<pre>{{f|json}}</pre>
+	<div>
+		<br />
+		<h3>Fotos</h3>
+		<table>
+			<thead>
+				<tr>
+					<!-- <th>Foto</th> -->
+
+					<th>Nome image</th>
+					<th>Nome usuario</th>
+					<th>CPF</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="f in files">
+
+					<!--<td><img ng-src="{{f.nomeImage}},{{f.file3}}" width="70" class="img-circle img80_80" /></td>-->
+
+					<td>{{f.nomeImage}}</td>
+					<td>{{f.usuario}}</td>
+					<td>{{f.cpf}}</td>
+					<td><button ng-click="editarFile(f)">Edit</button></td>
+					<td><button ng-click="deletarFile(f)">Delete</button></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

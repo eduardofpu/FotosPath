@@ -1,0 +1,51 @@
+  
+<div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.wallform.js"></script>
+  
+	
+
+	<form>
+
+    		
+		<div ng-controller="ControListar as vm">
+		 <div class="form-group">	
+		    												
+	       												
+		       <button class="btn btn-info btn-s"  ng-click="usuarios()"    
+		         data-placement="right" title="View the complete list" >Listar</button>					    		    								
+		  </div>		    		
+	</br>
+		
+    
+	
+	<div>
+		<br />
+		<h3>Fotos</h3>
+		<table>
+			<thead>
+				<tr>
+					<!-- <th>Foto</th> -->
+
+					<th>Nome</th>
+					
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="nome in vm.nomes">
+
+					
+					<td>{{nome}}</td>
+					
+					
+
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+</div>
+
